@@ -1,2 +1,24 @@
 ---
 # vars file for ansible-role-centos-docker
+
+packages_to_install:
+- docker-ce 
+- docker-ce-cli
+- containerd.io
+- firewalld
+
+packages_to_remove:
+- docker
+- docker-client
+- docker-client-latest
+- docker-common
+- docker-latest
+- docker-latest-logrotate
+- docker-logrotate
+- docker-engine
+
+
+ports_to_open:
+- 80/tcp
+- 443/tcp
+- 2377/tcp
