@@ -1,10 +1,6 @@
 ---
 # tasks file for ansible-role-centos-docker
 
-  - name: Include vars of docker.yaml.
-    include_vars:
-      file: group_vars/docker.yml
-
   - name: Remove existing docker installations or packages
     yum:
      name: "{{ packages_to_remove }}"
