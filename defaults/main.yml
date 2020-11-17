@@ -1,2 +1,7 @@
 ---
 # defaults file for ansible-role-centos-docker
+
+pre_packages_to_install:
+- yum-utils
+- device-mapper-persistent-data
+- lvm2
