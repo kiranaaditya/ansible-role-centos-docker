@@ -6,6 +6,11 @@
      name: "{{ packages_to_remove }}"
      state: absent
 
+  - name: Install some pre-flight packages
+    yum:
+      name: "{{ pre_packages_to_install }}"
+      state: present
+
   - name: Install some default software on all new linux machines.
     yum:
       name: yum-utils
@@ -27,6 +32,26 @@
       name: docker
       state: started
       enabled: yes
+
+  - name: Creating a docker systemd daemon
+    copy:
+      src: ../templates/daemon.json
+      dest: /etc/docker/daemon.json
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: Create a docker.service.d systemd directory
+    file:
+      path: /etc/systemd/system/docker.service.d
+      state: directory
+
+  - name: Restart the docker service and a daemon reload
+    systemd:
+      state: restarted
+      daemon_reload: yes
+      enabled: yes
+      name: docker
 
   - name: Adding the user to docker group
     user:

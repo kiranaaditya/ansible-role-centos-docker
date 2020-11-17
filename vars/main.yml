@@ -16,9 +16,3 @@ packages_to_remove:
 - docker-latest-logrotate
 - docker-logrotate
 - docker-engine
-
-
-ports_to_open:
-- 80/tcp
-- 443/tcp
-- 2377/tcp
