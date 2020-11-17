@@ -3,8 +3,8 @@
 
   - name: Remove existing docker installations or packages
     yum:
-     name: "{{ packages_to_remove }}"
-     state: absent
+      name: "{{ packages_to_remove }}"
+      state: absent
 
   - name: Install some pre-flight packages
     yum:
