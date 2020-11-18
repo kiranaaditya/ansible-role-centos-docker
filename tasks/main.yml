@@ -11,6 +11,11 @@
       name: "{{ pre_packages_to_install }}"
       state: present
 
+  - name: Upgrade all packages.
+    yum:
+      name: '*'
+      state: latest
+
   - name: Install some default software on all new linux machines.
     yum:
       name: yum-utils

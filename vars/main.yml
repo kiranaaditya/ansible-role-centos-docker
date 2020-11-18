@@ -7,9 +7,9 @@ pre_packages_to_install:
 - lvm2
 
 packages_to_install:
-- docker-ce 
-- docker-ce-cli
-- containerd.io
+- docker-ce-19.03.11 
+- containerd.io-1.2.13
+- containerd.io-1.2.13
 - firewalld
 
 packages_to_remove:
